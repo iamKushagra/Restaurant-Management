@@ -62,7 +62,7 @@ func GetFood() gin.HandlerFunc {
 func CreateFood() gin.HandlerFunc {
 	return func(c * gin.Context) {
 		var ctx, cancel = context.WithTimeout(context.Background(), 10 * time.Second)
-		var food models.Menu
+		var menu models.Menu
 		var food models.Food
 
 		if err: = c.BindJSON( & food);
