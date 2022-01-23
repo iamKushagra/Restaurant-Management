@@ -4,6 +4,7 @@ import (
 	"golang-restaurant-management/database"
 	"golang-restaurant-management/middleware"
 	"golang-restaurant-management/routes"
+	"golang-restaurant-management/controllers"
 	"os"
 
 	"gitub.com/gin-gonic/gin"
