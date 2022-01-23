@@ -2,7 +2,7 @@ package controller
 
 import (
 	"context"
-	"golang-restaurant-mangement/database"
+	"golang-restaurant-management/database"
 	"log"
 	"net/http"
 	"time"

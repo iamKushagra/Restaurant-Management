@@ -6,8 +6,7 @@ import (
 	"golang-restaurant-management/routes"
 	"golang-restaurant-management/controllers"
 	"os"
-
-	"gitub.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
