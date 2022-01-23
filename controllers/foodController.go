@@ -53,9 +53,18 @@ func GetFoods() gin.HandlerFunc {
 				{"food_items",bson.D{{"$slice",[]interface{}{"$data",startIndex,recordPerPage}}}},
 			}}}
 
-		foodCollection.Aggregate(ctx,mongo.Pipeline{
+		result, err := foodCollection.Aggregate(ctx,mongo.Pipeline{
 			matchStage, groupStage, projectStage
 		})
+		defer cancel()
+		if err!=nil{
+			c.JSON(http.StatusInternalServerError, gin.h {"error":"Error occured while listing food items"})
+		}
+		var allFoods []bson.M
+		if err = result.All(ctx, &allFoods); err != nil {
+			log.Fatal(err)
+		}
+		c.JSON(http.StatusOK, allFoods[0])
 	}
 }
 
